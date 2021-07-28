@@ -1,11 +1,12 @@
-
-<div>
-<h2>Product's Detail</h2>
-  <h3>
-      {{ product.name }}<br>
-      {{ product.category }}<br>
-      {{ product.price }}<br>
-      {{ product.description}}
-  </h3>
-
+<div *ngIf="product">
+  <h2>{{product.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{product.id}} <br>
+       <span>Name: </span>{{product.name}} <br>
+       <span>Category: </span>{{product.category}} <br>
+       <span>Price: </span>{{product.price}} <br>
+       <span>Description: </span>{{product.description}} <br>
+  </div>
+  <br>
+  <button (click)="addToCart()">add to cart</button><br><br><br><br><br><br>
+  <button (click)="goBack()">go back</button>
 </div>

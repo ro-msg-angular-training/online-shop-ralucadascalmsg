@@ -1,8 +1,5 @@
-<body>
 <h2>Products</h2>
-<ul>
-<div *ngFor="let product of products">
-       <li>{{product.name}}</li>
-</div>
-</ul>
-</body>
+<a *ngFor="let product of products"
+         routerLink="/product-detail/{{product.id}}"> <br>
+         {{product.name}}
+</a>
