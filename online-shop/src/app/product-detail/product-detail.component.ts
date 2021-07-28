@@ -9,7 +9,7 @@ import { ProductService } from '../product.service';
   styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent implements OnInit {
-  product:Product | undefined;
+  product!: Product;
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
@@ -19,6 +19,7 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit(): void {
     this.getProduct();
   }
+
   getProduct(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.productService.getProduct(id)
@@ -27,7 +28,14 @@ export class ProductDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
-  addToCart(): void {
+  deleteProduct(): void {
+    this.location.back();
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.productService.deleteProduct(id)
+      .subscribe(product => this.product = product);
+  }
+  addToCart(): void{
+    this.productService.addProductToShoppingCart(this.product);
   }
 
 }

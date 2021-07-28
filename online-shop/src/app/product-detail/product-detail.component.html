@@ -4,9 +4,11 @@
        <span>Name: </span>{{product.name}} <br>
        <span>Category: </span>{{product.category}} <br>
        <span>Price: </span>{{product.price}} <br>
+       <span>Image: </span>{{product.image}} <br>
        <span>Description: </span>{{product.description}} <br>
   </div>
   <br>
-  <button (click)="addToCart()">add to cart</button><br><br><br><br><br><br>
+  <button (click)="addToCart()">Add to cart</button><br>
+  <button (click)="deleteProduct()">Delete product</button><br><br><br><br><br><br>
   <button (click)="goBack()">go back</button>
 </div>

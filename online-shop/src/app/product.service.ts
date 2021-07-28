@@ -4,18 +4,41 @@ import { Observable, of } from 'rxjs';
 
 import { Product } from './product';
 import { PRODUCTS } from './mock-products'
+import { HttpClient } from '@angular/common/http';
+import { Order } from './order';
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
+    shoppingCart:Product[]=[];
 
+    constructor(private http: HttpClient) { }
+    getProducts(): Observable<Product[]> {
+      return this.http.get<Product[]>('http://localhost:3000/products');
+    }
 
-  getProducts(): Observable<Product[]> {
-    const products = of(PRODUCTS);
-    return products;
+    getProduct(id: number): Observable<Product> {
+     return this.http.get<Product>(`http://localhost:3000/products/${id}`);
   }
 
-  getProduct(id: number): Observable<Product> {
-    const product = PRODUCTS.find(p => p.id === id)!;
-    return of(product);
-  }
+     deleteProduct(id: number): Observable<Product> {
+      return this.http.delete<Product>(`http://localhost:3000/products/${id}`);
+ }
+
+    addProductToShoppingCart(product: Product){
+       this.shoppingCart.push(product);
+       console.log(product);
+    }
+
+    getProductsToShoppingCart():Product[]
+    {
+        return this.shoppingCart;
+    }
+
+    createOrder(){
+       const order: Order ={idProduct:1, user: 'Raluca ', quantity: 4};
+       console.log("order");
+       this.http.post<Order>('http://localhost:3000/orders',order);
+      
+   }
+
 }
