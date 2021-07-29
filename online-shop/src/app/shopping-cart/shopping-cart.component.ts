@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../product';
 import { ProductService } from '../product.service';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
@@ -8,7 +9,8 @@ import { ProductService } from '../product.service';
 })
 export class ShoppingCartComponent implements OnInit {
   products!:Product[];
-  constructor(private productService: ProductService){}
+  constructor(private productService: ProductService,
+    private location: Location){}
 
   ngOnInit(): void {
     this.getProductsToShoppingCart();
@@ -19,6 +21,9 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   checkout(): void{
-   
+    this.productService.createOrder();
   } 
+  goBack(): void {
+    this.location.back();
+  }
 }

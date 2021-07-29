@@ -1,0 +1,36 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  
+     <br><br>
+     <label for="name">Name: </label>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <input id="name" type="text" formControlName="name">
+ 
+     <br><br>
+     <label for="category">Category: </label>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <input id="category" type="text" formControlName="category">
+     
+     <br><br>
+     <label for="price">Price: </label>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <input id="price" type="text" formControlName="price">
+ 
+     <br><br>
+     <label for="image">Image: </label>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <input id="image" type="text" formControlName="image">
+ 
+     <br><br>
+     <label for="description">Description: </label>
+     &nbsp;
+     <input id="description" type="text" formControlName="description">
+ 
+     <br><br><br>
+     <button (click)="save()">Save</button>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <button (click)="cancel()">Cancel</button>
+   </form>

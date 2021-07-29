@@ -12,7 +12,6 @@ export class AppComponent implements OnInit {
   title = 'online-shop';
   constructor(private productService: ProductService){}
   ngOnInit() {
-    this.productService.createOrder();
   } 
 
 }

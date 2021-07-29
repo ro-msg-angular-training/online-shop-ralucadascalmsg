@@ -1,4 +1,5 @@
 <h2>Products</h2>
+<button> <a routerLink="/product-creator">Add product</a></button><br><br>
 <a *ngFor="let product of products"
          routerLink="/product-detail/{{product.id}}"> <br>
         {{product.name}}
