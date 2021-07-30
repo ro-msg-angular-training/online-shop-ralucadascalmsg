@@ -1,6 +1,9 @@
 <h2>Products</h2>
+<a routerLink="/shopping-cart">Shopping Cart</a><br><br>
 <button> <a routerLink="/product-creator">Add product</a></button><br><br>
 <a *ngFor="let product of products"
          routerLink="/product-detail/{{product.id}}"> <br>
         {{product.name}}
 </a>
+<br><br>
+<button> <a routerLink="/login">Log out</a></button>

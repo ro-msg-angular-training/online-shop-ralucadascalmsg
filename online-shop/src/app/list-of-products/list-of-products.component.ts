@@ -2,6 +2,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../product';
 import { ProductService } from '../product.service';
+import { LoginComponent } from '../login/login.component';
+import { User } from '../user';
+import { AuthService } from '../authService';
 @Component({
   selector: 'app-list-of-products',
   templateUrl: './list-of-products.component.html',
@@ -9,7 +12,9 @@ import { ProductService } from '../product.service';
 })
 export class ListOfProductsComponent implements OnInit {
   products?:Product[];
-  constructor(private productService: ProductService){}
+  user!: User;
+  constructor(private productService: ProductService,
+              private authService: AuthService ){}
 
   ngOnInit(): void {
     this.getProducts();

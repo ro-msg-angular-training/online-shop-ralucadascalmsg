@@ -5,21 +5,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ListOfProductsComponent } from './list-of-products/list-of-products.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import {HttpClientModule} from '@angular/common/http';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductEditorComponent } from './product-editor/product-editor.component';
 import { ProductCreatorComponent } from './product-creator/product-creator.component';
+import { LoginComponent } from './login/login.component';
+import { RestrictedComponent } from './restricted/restricted.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     ProductDetailComponent,
     ListOfProductsComponent,
-    DashboardComponent,
     ShoppingCartComponent,
     ProductEditorComponent,
-    ProductCreatorComponent
+    ProductCreatorComponent,
+    LoginComponent,
+    RestrictedComponent,
   ],
   imports: [
     BrowserModule,
