@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Product} from '../product'
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { ProductService } from '../product.service';
+import { ProductService } from '../services/product.service';
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
@@ -31,7 +31,7 @@ export class ProductDetailComponent implements OnInit {
   deleteProduct(): void {
     this.location.back();
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.productService.deleteProduct(id).subscribe(r => console.log(r), r1 => console.log('error:',r1));
+    this.productService.deleteProduct(id).subscribe((r: any) => console.log(r), (r1: any) => console.log('error:',r1));
   }
   editProduct(): void {
   }

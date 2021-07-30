@@ -3,7 +3,7 @@ import { FormControl,FormGroup } from '@angular/forms';
 import { Location } from '@angular/common';
 import {Product} from '../product'
 import { ActivatedRoute } from '@angular/router';
-import { ProductService } from '../product.service';
+import { ProductService } from '../services/product.service';
 import { Validators } from '@angular/forms';
 @Component({
   selector: 'app-product-editor',
@@ -38,7 +38,7 @@ export class ProductEditorComponent implements OnInit {
       image: this.onSubmit().get('image')?.value, 
       description: this.onSubmit().get('description')?.value};
       console.log(product);
-    this.productService.updateProduct(product.id,product).subscribe(r => console.log(r), r1 => console.log('error:',r1));
+    this.productService.updateProduct(product.id,product).subscribe((r: any) => console.log(r), (r1: any) => console.log('error:',r1));
   } 
   cancel():void{
     this.location.back();

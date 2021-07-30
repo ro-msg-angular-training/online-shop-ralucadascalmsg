@@ -1,0 +1,18 @@
+
+a.linkd:link, a.linkd:visited {
+  background-color: white;
+  color: black;
+  border: 2px solid rgb(0, 110, 138);
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+
+a.linkd :hover, a.linkd:active {
+  background-color: rgb(0, 110, 138);
+  color: white;
+}
+
+.button1 {background-color: #72a8b6;font-size: 24px;} 

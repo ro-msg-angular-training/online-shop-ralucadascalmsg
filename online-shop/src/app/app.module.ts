@@ -13,7 +13,6 @@ import { ProductCreatorComponent } from './product-creator/product-creator.compo
 import { LoginComponent } from './login/login.component';
 import { RestrictedComponent } from './restricted/restricted.component';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
 
 @NgModule({
   declarations: [
@@ -31,9 +30,6 @@ import { reducers, metaReducers } from './reducers';
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    StoreModule.forRoot(reducers, {
-      metaReducers
-    })
   ],
   providers: [],
   bootstrap: [AppComponent]

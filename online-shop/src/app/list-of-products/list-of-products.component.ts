@@ -1,10 +1,10 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../product';
-import { ProductService } from '../product.service';
+import { ProductService } from '../services/product.service';
 import { LoginComponent } from '../login/login.component';
 import { User } from '../user';
-import { AuthService } from '../authService';
+import { AuthService } from '../services/authService';
 @Component({
   selector: 'app-list-of-products',
   templateUrl: './list-of-products.component.html',
