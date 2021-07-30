@@ -5,6 +5,7 @@ import { Credentials } from '../credentials';
 import { User } from '../user';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { StoreModule } from '@ngrx/store';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -26,7 +27,8 @@ export class LoginComponent implements OnInit {
   logIN(): void{
     const credential: Credentials={username: this.onSubmit().get('username')?.value,
                                  password: this.onSubmit().get('password')?.value};
-    this.user1= this.authService.login(credential);                             
+    this.user1= this.authService.login(credential);    
+    //store.dispatch(this.authService.login(credential));                           
   }
 
   onSubmit():FormGroup{

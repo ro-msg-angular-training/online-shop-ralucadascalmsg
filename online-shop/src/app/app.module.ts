@@ -12,6 +12,8 @@ import { ProductEditorComponent } from './product-editor/product-editor.componen
 import { ProductCreatorComponent } from './product-creator/product-creator.component';
 import { LoginComponent } from './login/login.component';
 import { RestrictedComponent } from './restricted/restricted.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,10 @@ import { RestrictedComponent } from './restricted/restricted.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot(reducers, {
+      metaReducers
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
