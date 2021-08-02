@@ -6,28 +6,27 @@ import { User } from '../user';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { StoreModule } from '@ngrx/store';
+import {Store} from '@ngrx/store';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   error = '';
-  user1!: Observable<User>;
+  user!: User;
   userForm = new FormGroup({
     username: new FormControl('',Validators.required),
     password: new FormControl('',Validators.required)});
-  constructor(private authService: AuthService,
+    constructor(private authService: AuthService,
               private route: ActivatedRoute,
-              private router: Router, ) { }
-
-  ngOnInit(): void {
-  }
+              private router: Router ) { }
 
   logIN(): void{
     const credential: Credentials={username: this.onSubmit().get('username')?.value,
                                  password: this.onSubmit().get('password')?.value};
-    this.user1= this.authService.login(credential);    
+    this.authService.login(credential).subscribe(res => {if (res) {this.router.navigate(['/list-of-products']);}});
     //store.dispatch(this.authService.login(credential));                           
   }
 

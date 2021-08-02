@@ -3,10 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
 import { Product } from '../product';
-import { PRODUCTS } from '../mock-products'
 import { HttpClient } from '@angular/common/http';
 import { Order } from '../order';
-
+import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
@@ -15,26 +14,25 @@ export class ProductService {
     constructor(private http: HttpClient) { }
 
      createProduct(product: Product): Observable<Product> { 
-      return this.http.post<Product>('http://localhost:3000/products/',product); 
+      return this.http.post<Product>(`${environment.apiUrl}/products/`,product); 
     }
     getProducts(): Observable<Product[]> {
-      return this.http.get<Product[]>('http://localhost:3000/products');
+      return this.http.get<Product[]>(`${environment.apiUrl}/products`);
     }
 
     getProduct(id: number): Observable<Product> {
-     return this.http.get<Product>(`http://localhost:3000/products/${id}`);
+     return this.http.get<Product>(`${environment.apiUrl}/products/${id}`);
     }
 
      updateProduct(id: number, product: Product): Observable<Product> { 
-      return this.http.put<Product>(`http://localhost:3000/products/${id}`,product); 
+      return this.http.put<Product>(`${environment.apiUrl}/products/${id}`,product); 
     }
      deleteProduct(id: number): Observable<Product> {
-      return this.http.delete<Product>(`http://localhost:3000/products/${id}`);
+      return this.http.delete<Product>(`${environment.apiUrl}/products/${id}`);
      }
 
     addProductToShoppingCart(product: Product){
        this.shoppingCart.push(product);
-       console.log(product);
     }
 
     getProductsToShoppingCart():Product[]
@@ -42,10 +40,9 @@ export class ProductService {
         return this.shoppingCart;
     }
 
-    createOrder(){
+    createOrder():  Observable<Order>{
        const order: Order ={idProduct:1, user: 'Raluca ', quantity: 4};
-       console.log("order");
-       this.http.post<Order>('http://localhost:3000/orders',order); 
+      return this.http.post<Order>(`${environment.apiUrl}/orders`,order); 
    }
 
 }

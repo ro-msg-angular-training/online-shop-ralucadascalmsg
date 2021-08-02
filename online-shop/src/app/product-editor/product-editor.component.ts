@@ -10,7 +10,7 @@ import { Validators } from '@angular/forms';
   templateUrl: './product-editor.component.html',
   styleUrls: ['./product-editor.component.scss']
 })
-export class ProductEditorComponent implements OnInit {
+export class ProductEditorComponent {
   productForm = new FormGroup({
     idProduct: new FormControl('',Validators.required),
     name: new FormControl('',Validators.required),
@@ -26,8 +26,6 @@ export class ProductEditorComponent implements OnInit {
     private location: Location
   ) {}
 
-  ngOnInit(): void {
-  }
 
   save(): void{
   
@@ -37,14 +35,13 @@ export class ProductEditorComponent implements OnInit {
       price:this.onSubmit().get('price')?.value,
       image: this.onSubmit().get('image')?.value, 
       description: this.onSubmit().get('description')?.value};
-      console.log(product);
-    this.productService.updateProduct(product.id,product).subscribe((r: any) => console.log(r), (r1: any) => console.log('error:',r1));
+      this.productService.updateProduct(product.id,product).subscribe((r: any) => console.log(r), (r1: any) => console.log('error:',r1));
   } 
   cancel():void{
     this.location.back();
   }
-  onSubmit():FormGroup{
 
+  onSubmit():FormGroup{
    return this.productForm;
   }
 

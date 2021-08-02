@@ -5,12 +5,10 @@ import { Location } from '@angular/common';
   templateUrl: './restricted.component.html',
   styleUrls: ['./restricted.component.scss']
 })
-export class RestrictedComponent implements OnInit {
+export class RestrictedComponent {
 
   constructor(private location: Location) { }
 
-  ngOnInit(): void {
-  }
   goBack(): void {
     this.location.back();
   }

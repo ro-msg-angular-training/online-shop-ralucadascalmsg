@@ -10,7 +10,7 @@ import { Validators } from '@angular/forms';
   templateUrl: './product-creator.component.html',
   styleUrls: ['./product-creator.component.scss']
 })
-export class ProductCreatorComponent implements OnInit {
+export class ProductCreatorComponent {
   productForm = new FormGroup({
     name: new FormControl('',Validators.required),
     category: new FormControl('',Validators.required),
@@ -25,9 +25,6 @@ export class ProductCreatorComponent implements OnInit {
     private productService: ProductService,
     private location: Location
   ) {}
-
-  ngOnInit(): void {
-  }
 
   save(): void{
   

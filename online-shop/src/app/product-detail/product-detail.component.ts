@@ -33,8 +33,7 @@ export class ProductDetailComponent implements OnInit {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.productService.deleteProduct(id).subscribe((r: any) => console.log(r), (r1: any) => console.log('error:',r1));
   }
-  editProduct(): void {
-  }
+  
   addToCart(): void{
     this.productService.addProductToShoppingCart(this.product);
   }

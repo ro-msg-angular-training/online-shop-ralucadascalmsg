@@ -1,9 +1,8 @@
 <h2>Products</h2>
-<a class="linkd" routerLink="/shopping-cart">Shopping Cart</a><br><br>
-<button class="button1"> <a routerLink="/product-creator">Add product</a></button><br><br>
+<a class="linkd" routerLink="/shopping-cart">Shopping Cart</a> <br>
+<button class="button1"> <a routerLink="/product-creator">Add product</a></button><br>
 <a class="linkd" *ngFor="let product of products"
-        routerLink="/product-detail/{{product.id}}"> <br>
+        routerLink="/product-detail/{{product.id}}"> 
         {{product.name}}
-</a>
-<br><br>
+</a><br>
 <button class="button1"> <a routerLink="/login">Log out</a></button>
